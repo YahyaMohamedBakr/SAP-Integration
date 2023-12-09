@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Request page this class to feach API and get data
+ */
 class Request {
     public $data;
 

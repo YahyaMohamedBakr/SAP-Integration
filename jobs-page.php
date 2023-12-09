@@ -1,5 +1,12 @@
 <?php 
 
+/**
+ * Jobs page
+ * 
+ * this is jobs page in frontend
+ * 
+ */
+
  require('Request.php');
  //$url = 'https://api55.sapsf.eu/odata/v2/JobRequisition?$format=json&$filter=Hot_Jobs eq "true"';
  //$url2="https://api55.sapsf.eu/odata/v2/JobRequisition(578L)/vTeam";
