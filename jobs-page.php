@@ -46,7 +46,11 @@
     foreach($data as $d) :
 
         if(!empty($d->jobTitle)):
+
  ?>
+
+
+
 
         <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
             <div class="card border-0 bg-light rounded shadow">
@@ -88,14 +92,3 @@
   
     </div><!--end row-->
 </div>
-
-
-
-       
-       
-        
-
-
-
-        
-  

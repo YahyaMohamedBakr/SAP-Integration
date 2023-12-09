@@ -33,7 +33,7 @@ function sap_integration_options_page() {
     ?>
     <div class="wrap">
         <h1>SAP Integration Settings</h1>
-        <img src="<?= plugin_dir_url( __FILE__ ).'/img/sap.png'?>">
+        <img style = "height:100px" src="<?= plugin_dir_url( __FILE__ ).'/img/sap.png'?>">
         <form method="post" action="options.php">
             <?php
             settings_fields('sap_integration_settings');
