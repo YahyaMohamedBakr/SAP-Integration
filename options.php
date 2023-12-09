@@ -5,7 +5,8 @@
  * this page to add api settings and use plugin in menu
  */
 
-add_action('admin_menu', 'sap_integration_options_page',7);
+ 
+add_action('admin_menu', 'sap_integration_options_page');
 function sap_integration_options_page() {
       add_menu_page(
         'SAP Integration Settings',
@@ -14,7 +15,8 @@ function sap_integration_options_page() {
         'sap_integration_settings',
         'sap_integration_settings_page',
         plugin_dir_url( __FILE__ ).'/img/favicon.png',
-        60
+        3
+        
         
         
     );
@@ -58,6 +60,8 @@ function sap_integration_options_page() {
             submit_button();
             ?>
         </form>
+
+        <p> Use shortcode [Sap_Jobs] in jobs section or page</p>
     </div>
     <?php
 }
