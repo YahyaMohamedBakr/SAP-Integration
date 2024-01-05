@@ -18,12 +18,12 @@ class Request {
     
         if (is_wp_error($response)) {
 
-            echo 'error';
+            echo 'Error in Sap Response';
             return ;
         }
     
         $body = wp_remote_retrieve_body($response);
-      //  $data = simplexml_load_string($body);
+        //$data = simplexml_load_string($body);
         $d = json_decode($body);
         //$data =$d->EntitySets;
         $data =$d->d->results;

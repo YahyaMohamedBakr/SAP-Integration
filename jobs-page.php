@@ -7,36 +7,34 @@
  * 
  */
 
+
  require('Request.php');
- //$url = 'https://api55.sapsf.eu/odata/v2/JobRequisition?$format=json&$filter=Hot_Jobs eq "true"';
- //$url2="https://api55.sapsf.eu/odata/v2/JobRequisition(578L)/vTeam";
- //$url3= "https://api55.sapsf.eu/odata/v2/JobRequisition(990L)";
- $url4 = 'https://api55.sapsf.eu/odata/v2/JobRequisition?$format=json';
- $url5 = 'https://api55.sapsf.eu/odata/v2/?$format=json';
- $url6= 'https://api55.sapsf.eu/odata/v2/JobRequisitionLocale?$format=json';
- //$url =  'https://api55.sapsf.eu/odata/v2/JobRequisition?$format=json&$filter=Hot_Jobs eq "true"';
+ 
+
+
+ $apiUrl = get_option('sap_integration_url');
  $username = get_option('sap_integration_username');
  $password = get_option('sap_integration_password');
 
- $res= new Request($url6, $username, $password);
+ 
+
+ $res= new Request($apiUrl, $username, $password);
  $data=$res->data;
 
-//  foreach($data as $object){
-//     echo'<pre>';
-//     var_dump($object);
-//     echo'</pre>';
-//  }
-//  return;
 
-//  echo'<pre>';
-//  var_dump($data);
-//  echo'</pre>';
-//      return;
-// $u = urldecode($url);
-// echo $u;
+
+
+function addScripts(){
+    wp_enqueue_script( 'custom-css', plugin_dir_url( __FILE__ ) . 'assets/style.css');
+    wp_enqueue_script('bootstrap', "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+}
+
+add_action('wp_enqueue_scripts','addScripts' );
 ?>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="assets/style.css" rel="stylesheet" />
+
+
+
 
 <div class="container mt-5 pt-4">
    
@@ -45,17 +43,12 @@
  <?php 
     foreach($data as $d) :
 
-        if(!empty($d->jobTitle)):
-
  ?>
-
-
-
 
         <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
             <div class="card border-0 bg-light rounded shadow">
                 <div class="card-body p-4">
-                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0">Full time</span>
+                    <span class="badge rounded-pill bg-primary float-md-end mb-3 mb-sm-0"><?=$d->postingStatus?></span>
                
                     <h5><?=$d->jobTitle?></h5>
                     <p><?='external title is <strong>'. $d->externalTitle.'</strong>'?></p>
@@ -74,7 +67,7 @@
                             </span>
                     </div>
                     <div class="mt-3">
-                        <a  class="btn btn-primary" href="<?php echo 'https://career55.sapsf.eu/career?career_ns=job_listing&company=egyptexpre&navBarLevel=JOB_SEARCH&rcm_site_locale=en_GB&career_job_req_id='.$d->jobReqLocalId.'&selected_lang=en_US'?>"> Apply Job </a>
+                        <a  class="btn btn-primary" href="<?php echo 'https://career55.sapsf.eu/career?career_ns=job_listing&company=egyptexpre&navBarLevel=JOB_SEARCH&rcm_site_locale=en_GB&career_job_req_id='.$d->jobReqId.'&selected_lang=en_US'?>"> Apply Job </a>
                        
                     </div>
                 </div>
@@ -84,7 +77,7 @@
                
       
      <?php 
-    endif;
+     
      endforeach 
      ?>
 

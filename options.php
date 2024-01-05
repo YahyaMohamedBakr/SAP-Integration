@@ -23,9 +23,10 @@ function sap_integration_options_page() {
   }
   add_action( 'admin_init', 'sap_integration_options_page_init' );
   function sap_integration_options_page_init() {
-  
+      register_setting('sap_integration_settings', 'sap_integration_url');
       register_setting('sap_integration_settings', 'sap_integration_username');
       register_setting('sap_integration_settings', 'sap_integration_password');
+     
      
   }
   
@@ -42,6 +43,12 @@ function sap_integration_options_page() {
             ?>
 
             <table class="form-table">
+                <tr>
+                    <th><label for="sap_integration_url">SAP API URL: </label></th>
+                    <td>
+                        <input  type = 'text' class="regular-text" id="sap_integration_url" name="sap_integration_url" value="<?php echo get_option('sap_integration_url'); ?>" style="<?php echo empty(get_option('sap_integration_url')) ? 'border: 1px solid red' : ''; ?>">
+                    </td>
+                </tr>
                 <tr>
                     <th><label for="sap_integration_username">SAP API User Name:</label></th>
                     <td>
