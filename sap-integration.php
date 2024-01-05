@@ -24,7 +24,7 @@ require(__DIR__.'/options.php');
 
 function get_jobs() {
 
-  require('jobs-page.php');
+  require(__DIR__.'/jobs-page.php');
 
  
 }

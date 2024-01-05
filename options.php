@@ -5,7 +5,9 @@
  * this page to add api settings and use plugin in menu
  */
 
- 
+
+
+ //Regist Sap Plugin In Side Menu
 add_action('admin_menu', 'sap_integration_options_page');
 function sap_integration_options_page() {
       add_menu_page(
@@ -21,6 +23,8 @@ function sap_integration_options_page() {
         
     );
   }
+
+  //Regist Sap Settings Items
   add_action( 'admin_init', 'sap_integration_options_page_init' );
   function sap_integration_options_page_init() {
       register_setting('sap_integration_settings', 'sap_integration_url');
@@ -30,6 +34,7 @@ function sap_integration_options_page() {
      
   }
   
+  //Settings Page 
   function sap_integration_settings_page() {
     ?>
     <div class="wrap">
